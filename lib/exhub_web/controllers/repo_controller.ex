@@ -1,6 +1,8 @@
 defmodule ExhubWeb.RepoController do
   use ExhubWeb, :controller
 
+  action_fallback ExhubWeb.FallbackController
+
   def show(conn, %{"user" => user}) do
     with {:ok, repos} <- Exhub.get_user_repos(user) do
       conn
