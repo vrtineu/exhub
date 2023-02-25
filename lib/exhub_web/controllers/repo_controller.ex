@@ -5,7 +5,7 @@ defmodule ExhubWeb.RepoController do
     with {:ok, repos} <- Exhub.get_user_repos(user) do
       conn
       |> put_status(:ok)
-      |> render("index.json", repos: repos)
+      |> render("show.json", repos: repos)
     end
   end
 end
