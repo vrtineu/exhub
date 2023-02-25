@@ -7,5 +7,7 @@ defmodule ExhubWeb.Router do
 
   scope "/api", ExhubWeb do
     pipe_through :api
+
+    get "/repos/:user", RepoController, :show
   end
 end

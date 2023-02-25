@@ -6,4 +6,6 @@ defmodule Exhub do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+
+  defdelegate get_user_repos(user), to: Exhub.GithubApi.Client, as: :get_user_repos
 end
