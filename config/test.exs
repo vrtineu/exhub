@@ -13,6 +13,8 @@ config :exhub, Exhub.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+config :exhub, Exhub.UserRepos, github_api_adapter: Exhub.GithubApi.ClientMock
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :exhub, ExhubWeb.Endpoint,

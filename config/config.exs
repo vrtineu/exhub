@@ -11,6 +11,8 @@ config :exhub,
   ecto_repos: [Exhub.Repo],
   generators: [binary_id: true]
 
+config :exhub, Exhub.UserRepos, github_api_adapter: Exhub.GithubApi.Client
+
 # Configures the endpoint
 config :exhub, ExhubWeb.Endpoint,
   url: [host: "localhost"],
