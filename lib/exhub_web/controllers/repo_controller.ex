@@ -4,7 +4,7 @@ defmodule ExhubWeb.RepoController do
   action_fallback ExhubWeb.FallbackController
 
   def show(conn, %{"user" => user}) do
-    with {:ok, repos} <- Exhub.get_user_repos(user) do
+    with {:ok, repos} <- Exhub.fetch_repos(user) do
       conn
       |> put_status(:ok)
       |> render("show.json", repos: repos)

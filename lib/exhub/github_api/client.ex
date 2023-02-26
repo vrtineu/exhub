@@ -7,7 +7,6 @@ defmodule Exhub.GithubApi.Client do
 
   use Tesla
 
-  alias Exhub.Error
   alias Tesla.Env
 
   @base_url "https://api.github.com"
@@ -40,9 +39,7 @@ defmodule Exhub.GithubApi.Client do
     |> handle_response()
   end
 
-  defp handle_response({:ok, %Env{status: 404}}) do
-    {:error, Error.new("User not found", :not_found)}
-  end
+  defp handle_response({:ok, %Env{status: 404}}), do: {:error, "User not found"}
 
   defp handle_response({:ok, %Env{status: 200, body: body}}) do
     {:ok, Enum.map(body, &to_struct/1)}

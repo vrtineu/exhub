@@ -7,5 +7,5 @@ defmodule Exhub do
   if it comes from the database, an external API or others.
   """
 
-  defdelegate get_user_repos(user), to: Exhub.GithubApi.Client, as: :get_user_repos
+  defdelegate fetch_repos(username), to: Exhub.UserRepos, as: :fetch_repos
 end
