@@ -8,4 +8,6 @@ defmodule Exhub do
   """
 
   defdelegate fetch_repos(username), to: Exhub.UserRepos, as: :fetch_repos
+
+  defdelegate create_user(params), to: Exhub.Users.Create, as: :call
 end

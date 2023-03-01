@@ -9,5 +9,6 @@ defmodule ExhubWeb.Router do
     pipe_through :api
 
     get "/repos/:user", RepoController, :show
+    post "/users", UsersController, :create
   end
 end
