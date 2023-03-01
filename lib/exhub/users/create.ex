@@ -6,7 +6,6 @@ defmodule Exhub.Users.Create do
   def call(params) do
     %Exhub.User{}
     |> Exhub.User.changeset(params)
-    |> IO.inspect()
     |> Exhub.Repo.insert()
   end
 end
