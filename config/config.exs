@@ -11,6 +11,10 @@ config :exhub,
   ecto_repos: [Exhub.Repo],
   generators: [binary_id: true]
 
+config :exhub, Exhub.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 config :exhub, Exhub.UserRepos, github_api_adapter: Exhub.GithubApi.Client
 
 # Configures the endpoint
