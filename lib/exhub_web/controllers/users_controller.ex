@@ -12,4 +12,12 @@ defmodule ExhubWeb.UsersController do
       |> render("create.json", user: user)
     end
   end
+
+  def login(conn, params) do
+    with {:ok, token} <- ExhubWeb.authenticate_user(params) do
+      conn
+      |> put_status(:ok)
+      |> render("login.json", token: token)
+    end
+  end
 end

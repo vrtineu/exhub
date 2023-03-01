@@ -15,6 +15,14 @@ config :exhub, Exhub.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :exhub, ExhubWeb.Auth.Guardian,
+  issuer: "Exhub",
+  secret_key: "DDBkjcgc3QKJAoIq3txryOcc18lig8JxFuSo+YCsCG7dBjp5XkGKMchsmo8kuGU2"
+
+config :exhub, ExhubWeb.Auth.Pipeline,
+  module: ExhubWeb.Auth.Guardian,
+  error_handler: ExhubWeb.Auth.ErrorHandler
+
 config :exhub, Exhub.UserRepos, github_api_adapter: Exhub.GithubApi.Client
 
 # Configures the endpoint

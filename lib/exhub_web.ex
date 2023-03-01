@@ -72,4 +72,6 @@ defmodule ExhubWeb do
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
+
+  defdelegate authenticate_user(params), to: ExhubWeb.Auth.Guardian, as: :authenticate_user
 end
